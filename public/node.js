@@ -1,6 +1,7 @@
 var worker = new Worker("/program");
 
 function postResults(data) {    
+    console.log("Submitting results");
     var request = new XMLHttpRequest();
     request.open("POST", "/results", true);
     request.setRequestHeader("Content-Type", "application/json");
@@ -13,6 +14,7 @@ function getData() {
 
     request.onload = function () {        
         if (this.status == 200) {
+            console.log("Computing");
             worker.postMessage(JSON.parse(this.response));
         } else {
             // wait 10 seconds before trying to download the data again
@@ -28,4 +30,4 @@ worker.addEventListener("message", function (payload) {
     getData();
 }, false);
 
-getData();
+setTimeout(getData);
