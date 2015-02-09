@@ -1,0 +1,5 @@
+{
+    "name": "Conductor",
+    "description": "A distributed JavaScript map",
+    "repository": "https://github.com/apancik/conductor"    
+}
