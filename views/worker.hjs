@@ -1,0 +1,12 @@
+"use strict";
+                              
+{{{ program }}}
+
+self.addEventListener("message", function(payload) {
+    var message = payload.data;
+                             
+    self.postMessage({
+        key: message.key,
+        value: run(message.value)        
+    });
+}, false);

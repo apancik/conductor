@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conductor dashboard</title>
+</head>
+
+<script src="node.js" async></script>
+
+<body>
+    <h1>Conductor</h1>
+    <ol>
+        <li>
+            <h2>Upload data</h2>
+            <p>Use csv format. Note that the file needs to fit in the memory</p>
+            <form method="post" enctype="multipart/form-data" action="/data">
+                <label for="image_file">Data</label>
+                <input type="file" name="data">
+                <input type="submit">
+            </form>
+            <p>Loaded {{ loaded }}</p>
+        </li>
+        <li>
+            <h2>Upload program</h2>
+            <p>JavaScript with map function taking an array with data as an argument</p>
+            <form method="post" enctype="multipart/form-data" action="/program">
+                <label for="image_file">Program</label>
+                <input type="file" name="program">
+                <input type="submit">
+            </form>
+            <code><pre>{{ program }}</pre></code>
+        </li>
+        <li>
+            <h2>Compute</h2>
+            <p>Visit <code>http://{{ hostname }}</code> from node browsers or include <code>http://{{ hostname }}/node.js</code> in any website code.</p>
+            <p>Left to process {{ left }} / {{ loaded }}</p>
+        </li>
+        <li>
+            <h2>Download results</h2>
+
+            <a href="/results" download>Download results</a>
+        </li>
+    </ol>
+</body>
+
+</html>
